@@ -9,15 +9,16 @@
 
 ## 1: TUJUAN PRAKTIKUM
 
-1. Mahasiswa mampu menyelesaikan permasalahan/studi kasus    menggunakan sintaks pemilihan bersarang.
-2. Mahasiswa mampu menerapkan sintaks pemilihan bersarang ke dalam program Jawa.
-3. Mahasiswa mampu menerapkan operator logika &&, ||, dan ! pada struktur pemilihan.
+1. Mahasiswa dapat menjelaskan format penulisan program perulangan (for, while,
+dan do-while)
+2. Mahasiswa dapat mengimplementasikan flowchart perulangan menggunakan
+bahasa pemrograman Java
 
 ---
 
-## 2: HASIL PERCOBAAN & ANALISIS
+## 2: Praktikum
 
-### 2.1 Percobaan 1: Nested IF untuk Mengecek Syarat Ujian Skripsi
+### 2.1 Percobaan 1: Studi Kasus Nilai Mahasiswa di SIAKAD – Perulangan FOR
 
 #### 2.1.1 Kode Program Java
 ```java
@@ -61,20 +62,28 @@ public class nestedUjianSkripsi19 {
 ![Output Percobaan 1](<output ujian skripsi.png>)
 
 #### 2.1.3 Jawaban Pertanyaan / Pertanyaan Refleksi
-* **Pertanyaan 1:** Apa yang terjadi jika mahasiswa menjawab "No" pada pertanyaan bebas kompen? Mengapa demikian?
-  * **Jawab:** Kode akan menjalankan statement di blok ELSE karena pada kondisi IF mengecek apakah noPenalty memiliki nilai yes sehingga ketika memasukkan nilai no akan menjalankan kode di blok ELSE.
-* **Pertanyaan 2:** Jelaskan maksud dari potongan kode berikut! if (guidanceCount1 >= 8 && guidanceCount2 >= 4) 
-  * **Jawab:** Kode tersebut adalah kondisi dalam IF yang mengecek apakah variable guidanceCount1 lebih dari sama dengan 8 *dan guidanceCount lebih dari sama dengan 4. Karena dalam kondisi tersebut terdapat operator &&, maka kedua kondisi variable harus bernilai true agar bisa menghasilkan true.
-* **Pertanyaan 3:** Bagaimana alur pemeriksaan syarat mahasiswa dari awal sampai akhir? Jelaskan secara runtut untuk semua kondisi!
+* **Pertanyaan 1:** Sebutkan dan tunjukkan masing-masing komponen perulangan FOR pada kode program Percobaan 1!
+  * **Jawab:** .
+* **Pertanyaan 2:** Mengapa variabel tertinggi diinisialisasi 0 dan terendah diinisialisasi 100? Apa yang terjadi jika variabel tertinggi diinisialisasi 100 dan terendah diinisialisasi 0?
+  * **Jawab:** .
+* **Pertanyaan 3:** Jelaskan fungsi dan alur kerja dari potongan kode berikut!
+```
+if (nilai > tertinggi) {
+    tertinggi = nilai;
+}
+if (nilai < terendah) {
+    terendah = nilai;
+}
+```
   * **Jawab:**
-   1. Alur yang pertama adalah mengecek apakah variable noPenalty memiliki nilai yes. Jika variable noPenalty tidak bernilai yes maka kode akan menjalankan statement message = "Failed! The student still has an outstanding penalty";. Jika variable noPenalty bernilai yes maka program akan masuk ke nested IF-ELSE.
-   2. Alur kedua adalah mengecek apakah variable guidanceCount1 bernilai lebih dari sama dengan 8 dan variable guidanceCount2 bernilai lebih dari sama dengan 4 yang mana jika kondisi tersebut menghasilkan true maka akan menjalankan statement message = "All requirements met. The student may register for the thesis exam;.
-   3. Jika kondisi tersebut tidak bernilai true maka program akan mengecek kondisi pada ELSE-IF yaitu mengecek apakah variable guidanceCount1 bernilai kurang dari 8 dan guidanceCount2 bernilai kurang dari 4. Jika kondisi tersebut bernilai true maka akan menjalankan statement message = "Failed! Guidance sessions with Supervisor 1 are below 8 and Supervisor 2 are below 4";.
-   4. Jika kondisi tersebut tidak bernilai true maka program akan mengecek kondisi pada ELSE-IF berikutnya yaitu mengecek apakah variable guidanceCount1 kurang dari 8. Jika kondisi tersebut bernilai true maka akan menjalankan statement message = "Failed! Guidance sessions with Supervisor 1 have not reached 8";{:.java}.
-   5. Jika kondisi tersebut tidak bernilai true maka akan menjalan statement pada blok ELSE yaitu message = "Failed! Guidance sessions with Supervisor 2 have not reached 4";{:.java}
+* **Pertanyaan 4:** Modifikasi kode program sehingga terdapat perhitungan untuk menentukan berapa mahasiswa yang lulus dan yang tidak lulus berdasarkan batas kelulusan (nilai minimal 60). Tampilkan jumlah mahasiswa lulus dan tidak lulus setelah menampilkan nilai tertinggi dan terendah!
+  * **Jawab:**
+* **Pertanyaan 5:** Commit dan push kode program ke Github
+  * **Jawab**
+    
 ---
 
-### 2.2 Percobaan 2: Operator Logika untuk Menentukan Akses WiFi Kampus
+### 2.2 Percobaan 2: Studi Kasus Nilai Mahasiswa di SIAKAD – Perulangan WHILE
 
 #### 2.2.1 Kode Program
 ```java
@@ -107,20 +116,27 @@ public class operatorLogikaWifi19 {
 ![Output Percobaan 2](<output akses WIFI.png>)
 
 #### 2.2.3 Jawaban Pertanyaan / Pertanyaan Refleksi
-* **Pertanyaan 1:** Jelaskan fungsi operator ||, &&, dan ! pada kondisi program tersebut.
-  * **Jawab:** Operator || berfungsi sebagai operator dengan rule OR yaitu minimal satu kondisi bernilai true untuk menghasilkan nilai true. Operator && berfungsi sebagai operator dengan rule AND yang kondisinya harus bernilai true semua agar menghasilkan nilai true. Operator ! berfungsi untuk menegasikan suatu kondisi
-* **Pertanyaan 2:** Mengapa pengguna dosen tetap dapat memperoleh akses ketika nilai mahasiswa = false?
-  * **Jawab:** Karena dalam kondisi IF terdapat operator OR
-* **Pertanyaan 3:** Ubah operator || menjadi &&. Jalankan kembali program menggunakan data uji 1 dan 2. Apa yang terjadi dan mengapa?
-  * **Jawab:** Pada data uji 1 dan 2 program menampilkan Akses wifi ditolak karena operator && mengharuskan dua kondisi bernilai true agar menghasilkan nilai true.
-* **Pertanyaan 4:** Pada ekspresi mahasiswa || dosen, kapan kondisi dosen tidak perlu dievaluasi? Jelaskan berdasarkan short-circuit evaluation.
-  * **Jawab:** Saat variable mahasiswa bernilai true karena operator || menghasilkan nilai true jika salah satu kondisi bernilai true. Karena program tau jika dengan kondisi mahasiswa true akan menghasilkan nilai true maka program tidak akan mengevaluasi kondisi dosen
-* **Pertanyaan 5:** Pada ekspresi (mahasiswa || dosen) && !akunDiblokir, kapan kondisi !akunDiblokir tidak perlu dievaluasi? Jelaskan
-  * **Jawab:** Saat kondisi (mahasiswa || dosen) bernilai false. Karena operator && mengharuskan dua kondisi bernilai true agar menghasilkan nilai true jadi !akunDiblokir tidak dievaluasi karena dengan kondisi (mahasiswa || dosen) bernilai false, keseluruhan kondisi akan bernilai false
+* **Pertanyaan 1:** Pada potongan kode berikut, tentukan maksud dan kegunaan dari sintaks berikut:
+```
+if (nilai < 0 || nilai > 100) {
+    System.out.println("Nilai tidak valid. Masukkan lagi nilai yang valid!");
+    continue;
+}
+```
+a. nilai < 0 || nilai > 100
+b. continue
+  * **Jawab:** 
+* **Pertanyaan 2:** Mengapa sintaks i++ dituliskan di akhir perulangan WHILE? Apa yang terjadi jika posisinya dituliskan di awal perulangan WHILE?
+  * **Jawab:**
+* **Pertanyaan 3:** Apabila jumlah mahasiswa yang dimasukkan adalah 19, berapa kali perulangan WHILE akan berjalan?
+  * **Jawab:**
+* **Pertanyaan 4:** Modifikasi kode program sehingga apabila terdapat mahasiswa yang mendapat nilai A, program menampilkan pesan tambahan "Bagus, pertahankan nilainya"!
+  * **Jawab:** 
+* **Pertanyaan 5:** Commit dan push kode program ke Github
+  * **Jawab:** 
 ---
 
-### 2.3 Percobaan 3: Nested IF dan Operator Logika untuk Menentukan Akses Laboratorium
-
+### 2.3 Percobaan 3: Studi Kasus Transaksi di Kafe – Perulangan DO-WHILE
 #### 2.3.1 Kode Program Java
  ```java
 import java.util.Scanner;
@@ -155,16 +171,15 @@ public class nestedAksesLab19 {
 ![Output Percobaan 3](<output akses lab.png>)
 
 #### 2.3.3 Jawaban Pertanyaan / Pertanyaan Refleksi
-* **Pertanyaan 1:** Jelaskan fungsi operator &&, ||, dan ! pada program tersebut.
-  * **Jawab:** Operator || berfungsi sebagai operator dengan rule OR yaitu minimal satu kondisi bernilai true untuk menghasilkan nilai true. Operator && berfungsi sebagai operator dengan rule AND yang kondisinya harus bernilai true semua agar menghasilkan nilai true. Operator ! berfungsi untuk menegasikan suatu kondisi
-* **Pertanyaan 2:**  Apakah syarat akses dapat ditulis menjadi satu kondisi: mahasiswaAktif && !sedangDisanksi && (punyaIzinDosen || asistenLab)? Jelaskan apakah keputusan akses akhirnya sama.
-  * **Jawab:** Bisa, output yang dihasilkan juga sama karena nested IF sama dengan operator &&
-* **Pertanyaan 3:** Apa keuntungan menggunakan Nested IF pada kasus ini dibandingkan hanya satu IF jika sistem perlu menampilkan alasan penolakan yang berbeda?
-  * **Jawab:** Keuntungan dari nested IF adalah memungkinkan menangani salah satu kondisi yang bernilai false
-* **Pertanyaan 4:** Buat satu kombinasi masukan yang menyebabkan akses ditolak pada level pertama dan satu kombinasi yang menyebabkan akses ditolak pada level kedua.
+* **Pertanyaan 1:** Pada penggunaan DO-WHILE ini, apabila nama pelanggan yang dimasukkan pertama kali adalah “batal”, maka berapa kali perulangan dilakukan?
   * **Jawab:** 
-  1. Kombinasi 1: true, true, false, false
-  2. Kombinasi 2: true, false, false, false
+* **Pertanyaan 2:**  Sebutkan kondisi berhenti yang digunakan pada perulangan DO-WHILE tersebut!
+  * **Jawab:** 
+* **Pertanyaan 3:** Apa fungsi dari penggunaan nilai true pada kondisi DO-WHILE?
+  * **Jawab:** 
+* **Pertanyaan 4:** Mengapa perulangan DO-WHILE tersebut tetap berjalan meskipun tidak ada komponen inisialisasi dan update?
+  * **Jawab:** 
+
 
 ## 3: TUGAS MANDIRI
    1. Tugas 1: 
