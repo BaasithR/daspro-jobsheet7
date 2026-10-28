@@ -22,36 +22,25 @@ bahasa pemrograman Java
 
 #### 2.1.1 Kode Program Java
 ```java
-// Contoh kode program dummy Percobaan 1
 import java.util.Scanner;
 
-public class nestedUjianSkripsi19 {
+public class SiakadFor19 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        String pesan;
-        System.out.print("Apakah mahasiswa sudah bebas kompen? (Ya/Tidak): ");
-        String bebasKompen = sc.nextLine().trim();
-
-        System.out.print("Masukkan jumlah log bimbingan Pembimbing 1: ");
-        int bimbinganP1 = sc.nextInt();
-        System.out.print("Masukkan jumlah log bimbingan Pembimbing 2: ");
-        int bimbinganP2 = sc.nextInt();
-
-        if (bebasKompen.equalsIgnoreCase("Ya")) {
-            if (bimbinganP1 >= 8 && bimbinganP2 >= 4) {
-                pesan = "Semua syarat terpenuhi. Mahasiswa boleh mendaftar ujian skripsi";
-            } else if (bimbinganP1 < 8 && bimbinganP2 < 4){
-                pesan = "Gagal! Log bimbingan P1 kurang dari 8 kali dan P2 kurang dari 4 kali";
-            } else if(bimbinganP1 < 8){
-                pesan = "Gagal! Log bimbingan P1 belum mencapai 8 kali";
-            } else {
-                pesan = "Gagal! Log bimbingan P2 belum mencapai 4 kali";
+        double nilai, tertinggi = 0, terendah = 100;
+        for (int i = 1; i <= 10; i++) {
+            System.out.print("Masukkan nilai mahasiswa ke- " + i + ": ");
+            nilai = sc.nextDouble();
+            if (nilai > tertinggi) {
+                tertinggi = nilai;
             }
-        } else {
-            pesan = "Gagal! Mahasiswa masih memiliki tanggungan kompen";
+            if (nilai < terendah) {
+                terendah = nilai;
+            }   
         }
-        System.out.println(pesan);
+        System.out.println("Nilai tertinggi : " + tertinggi);
+        System.out.println("Nilai terendah : " + terendah);
     }
 }
 
@@ -89,26 +78,44 @@ if (nilai < terendah) {
 ```java
 import java.util.Scanner;
 
-public class operatorLogikaWifi19 {
+public class SiakadWhile19 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        boolean mahasiswa, dosen, akunDiblokir;
+        int nilai, jml, i = 0;
+        System.out.println("Masukkan jumlah mahasiswa: ");
+        jml = sc.nextInt();
 
-        System.out.println("Apakah pengguna mahasiswa (true/false): ");
-        mahasiswa = sc.nextBoolean();
-        System.out.println("Apakah pengguna dosen (true/false): ");
-        dosen = sc.nextBoolean();
-        System.out.println("Apakah akun sedang diblokir? (true/false): ");
-        akunDiblokir = sc.nextBoolean();
-        
-        if ((mahasiswa || dosen) && !akunDiblokir) {
-            System.out.println("Akses WIFI diberikan");
-        } else {
-            System.out.println("Akses WIFI ditolak");
+        while (i < jml){
+            System.out.print("Masukkan nilai mahasiswa ke- " + (i + 1) + ": ");
+            nilai = sc.nextInt();
+
+            if (nilai < 0 || nilai > 100){
+                System.out.println("Nilai tidak valid, Masukkan lagi nilai yang valid!");
+                continue;
+            }
+
+            if (nilai > 80 && nilai <= 100) {
+                System.out.println("Nilai mahasiswa ke-" + (i+1) + " adalah A");
+            } else if (nilai > 73 && nilai <= 80) {
+                System.out.println("Nilai mahasiswa ke-" + (i+1) + " adalah B+");
+            } else if (nilai > 65 && nilai <= 73) {
+                System.out.println("Nilai mahasiswa ke-" + (i+1) + " adalah B");
+            } else if (nilai > 60 && nilai <= 65) {
+                System.out.println("Nilai mahasiswa ke-" + (i+1) + " adalah C+");
+            } else if (nilai > 50 && nilai <= 60) {
+                System.out.println("Nilai mahasiswa ke-" + (i+1) + " adalah C");
+            } else if (nilai > 39 && nilai <= 50) {
+                System.out.println("Nilai mahasiswa ke-" + (i+1) + " adalah D");
+            } else {
+                System.out.println("Nilai mahasiswa ke-" + (i+1) + " adalah E");
+            }
+            i++;
         }
     }
+        
 }
+
 ```
 
 #### 2.2.2 Hasil Running
@@ -141,30 +148,36 @@ b. continue
  ```java
 import java.util.Scanner;
 
-public class nestedAksesLab19 {
+public class KafeDoWhile19 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Apakah status mahasiswa aktif? (true/false): ");
-        boolean mahasiswaAktif = sc.nextBoolean();
-        System.out.println("Apakah dikenakan sanksi? (true/false): ");
-        boolean sedangDisanksi = sc.nextBoolean();
-        System.out.println("Apakah punya izin dari dosen? (true/false): ");
-        boolean punyaIzinDosen = sc.nextBoolean();
-        System.out.println("Apakah merupakan asisten lab? (true/false): ");
-        boolean asistenLab = sc.nextBoolean();
+        int kopi, teh, roti;
+        String namaPelanggan;
+        int hargaKopi = 12000, hargaTeh = 7000, hargaRoti = 20000;
 
-        if (mahasiswaAktif && !sedangDisanksi) {
-            if (punyaIzinDosen || asistenLab) {
-                System.out.println("Akses laboratorium diberikan");
-            } else {
-                System.out.println("Akses ditolak: membutuhkan izin dosen atau status asisten lab");
+        do {
+            System.out.print("Masukkan nama pelanggan (ketik 'batal' untuk keluar): ");
+            namaPelanggan = sc.nextLine();
+            if (namaPelanggan.equalsIgnoreCase("batal")) {
+                System.out.println("Transaksi dibatalkan");
+                break;
             }
-        } else {
-            System.out.println("Akses ditolak: status mahasiswa tidak memenuhi syarat");
-        }
+            System.out.print("Jumlah kopi: ");
+            kopi = sc.nextInt();
+            System.out.print("Jumlah teh: ");
+            teh = sc.nextInt();
+            System.out.print("Jumlah roti: ");
+            roti = sc.nextInt();
+            int totalHarga = (kopi * hargaKopi) + (teh * hargaTeh) + (roti * hargaRoti);
+            System.out.println("Total yang harus dibayar: Rp " + totalHarga);
+            sc.nextLine();
+        } while (true);
+        System.out.println("Semua transaksi selesai.");
+        sc.close();
     }
 }
+
 ```
 #### 2.3.2 Hasil Running
 
