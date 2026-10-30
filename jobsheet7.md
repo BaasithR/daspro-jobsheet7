@@ -102,10 +102,10 @@ public class SiakadFor19 {
 }
 ```
 #### Hasil Running
-![Output Percobaan](<Output Siakad For.png>)
+![Output Percobaan](<Output Modif Siakad For.png>)
 
 * **Pertanyaan 5:** Commit dan push kode program ke Github
-  * **Jawab**
+  * **Jawab** Sudah
     
 ---
 
@@ -128,7 +128,7 @@ public class SiakadWhile19 {
             nilai = sc.nextInt();
 
             if (nilai < 0 || nilai > 100){
-                System.out.println("Nilai tidak valid, Masukkan lagi nilai yang valid!");
+                System.out.println("Nilai tidak valid, Masukkan lagi nilai yang  valid!");
                 continue;
             }
 
@@ -149,8 +149,7 @@ public class SiakadWhile19 {
             }
             i++;
         }
-    }
-        
+    }    
 }
 
 ```
@@ -168,14 +167,59 @@ if (nilai < 0 || nilai > 100) {
 }
 ```
 a. nilai < 0 || nilai > 100
+   Kegunaannya adalah sebagai batasan agar tidak ada nilai yang lebih kecil dari 0 dan lebih besar dari 100, jadi nilai yang dianggap sah hanya antara 0-100 saja 
 b. continue
-  * **Jawab:** 
+   Digunakan untuk mengulang ke input sebelumnya karena input yang baru saja dilakukan tidak valid. Dengan adanya continue ini program setelahnya tidak akan dijalankan melainkan ia akan mengulang lagi ke angka yang sama, misal dipercobaan itu orang ke 3 tidak valid maka program setelahnya tidak akan jalan atau i tidak akan bertambah melainkan mengulang lagi ke 3. 
 * **Pertanyaan 2:** Mengapa sintaks i++ dituliskan di akhir perulangan WHILE? Apa yang terjadi jika posisinya dituliskan di awal perulangan WHILE?
-  * **Jawab:**
+  * **Jawab:** i++ ditulis diakhir while agar setelah program dalam while dijalankan variable i nya bertambah, jika kita menaruh i++ di atas katakanlah setelah continue maka nilai i akan bertambah meskipun nilainya nanti tidak valid karena i tidak melewati seleksi while, jadi mau input valid atau tidak ya tetap dihitung 1 mahasiswa.
 * **Pertanyaan 3:** Apabila jumlah mahasiswa yang dimasukkan adalah 19, berapa kali perulangan WHILE akan berjalan?
-  * **Jawab:**
+  * **Jawab:** While akan berulang sebanyak 19 kali.
 * **Pertanyaan 4:** Modifikasi kode program sehingga apabila terdapat mahasiswa yang mendapat nilai A, program menampilkan pesan tambahan "Bagus, pertahankan nilainya"!
-  * **Jawab:** 
+  * **Jawab:**
+```java
+import java.util.Scanner;
+
+public class SiakadWhile19 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int nilai, jml, i = 0;
+        System.out.println("Masukkan jumlah mahasiswa: ");
+        jml = sc.nextInt();
+
+        while (i < jml){
+            System.out.print("Masukkan nilai mahasiswa ke- " + (i + 1) + ": ");
+            nilai = sc.nextInt();
+
+            if (nilai < 0 || nilai > 100){
+                System.out.println("Nilai tidak valid, Masukkan lagi nilai yang  valid!");
+                continue;
+            }
+
+            if (nilai > 80 && nilai <= 100) {
+                System.out.println("Nilai mahasiswa ke-" + (i+1) + " adalah A");
+                System.out.println("Bagus, pertahankan nilainya!!");
+            } else if (nilai > 73 && nilai <= 80) {
+                System.out.println("Nilai mahasiswa ke-" + (i+1) + " adalah B+");
+            } else if (nilai > 65 && nilai <= 73) {
+                System.out.println("Nilai mahasiswa ke-" + (i+1) + " adalah B");
+            } else if (nilai > 60 && nilai <= 65) {
+                System.out.println("Nilai mahasiswa ke-" + (i+1) + " adalah C+");
+            } else if (nilai > 50 && nilai <= 60) {
+                System.out.println("Nilai mahasiswa ke-" + (i+1) + " adalah C");
+            } else if (nilai > 39 && nilai <= 50) {
+                System.out.println("Nilai mahasiswa ke-" + (i+1) + " adalah D");
+            } else {
+                System.out.println("Nilai mahasiswa ke-" + (i+1) + " adalah E");
+            }
+            i++;
+        }
+    }    
+}
+```
+#### Hasil Running
+
+
 * **Pertanyaan 5:** Commit dan push kode program ke Github
   * **Jawab:** 
 ---
