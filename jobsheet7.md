@@ -105,7 +105,7 @@ public class SiakadFor19 {
 ![Output Percobaan](<Output Modif Siakad For.png>)
 
 * **Pertanyaan 5:** Commit dan push kode program ke Github
-  * **Jawab** Sudah
+  * **Jawab:** Sudah
     
 ---
 
@@ -218,10 +218,10 @@ public class SiakadWhile19 {
 }
 ```
 #### Hasil Running
-
+![Output Percobaan](<Output Modif Siakad While.png>)
 
 * **Pertanyaan 5:** Commit dan push kode program ke Github
-  * **Jawab:** 
+  * **Jawab:** Sudah
 ---
 
 ### 2.3 Percobaan 3: Studi Kasus Transaksi di Kafe – Perulangan DO-WHILE
@@ -266,104 +266,105 @@ public class KafeDoWhile19 {
 
 #### 2.3.3 Jawaban Pertanyaan / Pertanyaan Refleksi
 * **Pertanyaan 1:** Pada penggunaan DO-WHILE ini, apabila nama pelanggan yang dimasukkan pertama kali adalah “batal”, maka berapa kali perulangan dilakukan?
-  * **Jawab:** 
-* **Pertanyaan 2:**  Sebutkan kondisi berhenti yang digunakan pada perulangan DO-WHILE tersebut!
-  * **Jawab:** 
+  * **Jawab:** Jika kita input batal maka program akan memicu break atau berhenti saat itu juga, jadi tidak ada transaksi yang diproses. 
+* **Pertanyaan 2:** Sebutkan kondisi berhenti yang digunakan pada perulangan DO-WHILE tersebut!
+  * **Jawab:** kondisi berhenti yang digunakan pada program diatas adalah “namaPelanggan.equalsIgnoreCase("batal")”. Karena ada equalsIgnoreCase mau kita nulis huruf besar atau kecil tidak akan berpengaruh, dengan kita input batal maka program akan mencetak “Transaksi dibatalkan” dan memicu break sehingga program berhenti saat itu juga dan tidak akan dilanjutkan.
 * **Pertanyaan 3:** Apa fungsi dari penggunaan nilai true pada kondisi DO-WHILE?
-  * **Jawab:** 
+  * **Jawab:** Artinya sama aja kayak ulangi terus selamanya sampai ada break yang membuatnya berhenti. JIkalau while biasa tanpa true, yaudah bener dan tetap berjalan, sedangkan false ya berhenti tapi kalau dari awal sudah ada true maka nilainya ga pernah salah dan ga pernah berhenti kecuali ketemu break.
 * **Pertanyaan 4:** Mengapa perulangan DO-WHILE tersebut tetap berjalan meskipun tidak ada komponen inisialisasi dan update?
-  * **Jawab:** 
+  * **Jawab:** Karena nilainya konstan true terus, bukan hasil dari perbandingan variabel. Jadi dari awal pun gaada nilai yang perlu diganti. Jadi ketika berhenti di break ini, disebabkan karena input pengguna bukan dari perbandingan variabel. 
 
 
 ## 3: TUGAS MANDIRI
-   1. Tugas 1: 
+   1. Tugas 1:
+       Seorang pengelola bioskop ingin membuat program untuk menghitung total penjualan tiket dalam satu hari. Tiket dijual dengan harga Rp 50.000 per tiket. Program harus menghitung total tiket yang terjual dan total harga penjualan tiket selama satu hari dengan ketentuan sebagai berikut: 
    * **Kode Program java**
 ```java
 import java.util.Scanner;
 
-public class tugas1diskonBuku19 {
-  public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+public class TiketBioskop19 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-    int diskon = 0; 
-    String buku;
-    int jumlah;
+        int hargaTiket = 50000;
+        int jumlahTiket, totalTiket = 0, totalPenjualan = 0;
+        int totalAwal, persenDiskon, diskon, totalBayar;
 
-    System.out.print("Buku apa yg ingin kamu beli?  ");
-    buku = sc.next();
+        while (true) {
+            System.out.print("Masukkan jumlah tiket (0 untuk selesai): ");
+            jumlahTiket = sc.nextInt();
 
-    System.out.print("Berapa jumlah bukunya? ");
-    jumlah = sc.nextInt();
+            if (jumlahTiket == 0) {
+                break;
+            }    
+            if (jumlahTiket < 0) {
+                System.out.println("Input tidak valid, silakan masukkan lagi!");
+            }
+            totalAwal = jumlahTiket*hargaTiket;
 
-    if (buku.equalsIgnoreCase("kamus")) {
-      diskon = 10;
-      if (jumlah > 2) {
-        diskon += 0.02;
-      }
-    } else if (buku.equalsIgnoreCase("novel")) {
-      diskon = 7;
-      if (jumlah > 3) {
-        diskon += 3;
-      } else {
-        diskon += 0.01;
-      }
-    } else {
-      if (jumlah > 3) {
-        diskon = 5;
-      }
+            if (jumlahTiket > 10) {
+                persenDiskon = 15;
+            } else if (jumlahTiket > 4 ) {
+                persenDiskon = 10;
+            } else {
+                persenDiskon = 0;
+            }
+            diskon = totalAwal * persenDiskon/100;
+            totalBayar = totalAwal - diskon;
 
+            System.out.println("Harga awal  : Rp " + totalAwal);
+            System.out.println("Diskon      : " + persenDiskon + "% (Rp " + diskon + ")");
+            System.out.println("Total bayar : Rp " + totalBayar);
+
+            totalTiket += jumlahTiket;
+            totalPenjualan += totalBayar;
+        }
+        System.out.println("\n=== Rekap Penjualan Hari Ini ===");
+        System.out.println("Total tiket terjual : " + totalTiket);
+        System.out.println("Total penjualan     : Rp " + totalPenjualan);
+        sc.close();
     }
-    sc.close();
-    System.out.println(String.format("Total diskonmu adalah %d%%",  diskon));
-  }
 }
+
 ```
    * **Hasil Running**
 
-![Output Tugas 1](<output diskon buku.png>)
+![Output Tugas 1](<Output Tiket Bioskop.png>)
 
    2. Tugas 2:
+      Sebuah tempat parkir ingin membuat program untuk menghitung total pembayaran parkir dari beberapa kendaraan. Tarif parkir adalah Rp 3.000 per jam untuk mobil dan Rp 2.000 per jam untuk motor. Program akan terus meminta masukan selama input bukan 0. Implementasikan flowchart tersebut ke dalam bentuk kode program Java!
    * **Kode Program Java**
 ```java
 import java.util.Scanner;
 
-public class tugas2SeleksiAsisten {
+public class Parkir19 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        boolean isAktif;
-        boolean sedangDisanksi;
-        int nilaiDaspro,nilaiWawancara;
-        boolean hasSertifikat;
-        
-        System.out.print("Apakah status mahasiswa aktif? ");
-        isAktif = sc.nextBoolean();
-        System.out.print("Apakah Mahasiswa mendapatkan sanksi akademik? ");
-        sedangDisanksi = sc.nextBoolean();
+        int jenis, waktu, total = 0;
+        do {
+            System.out.print("Masukkan jenis kendaraan ( 1 = Mobil, 2 = Motor, 0 = keluar): ");
+            jenis = sc.nextInt();
 
-        if (isAktif && !sedangDisanksi) {
-            System.out.print("Berapa nilai Dasar Pemrograman? ");
-            nilaiDaspro = sc.nextInt();
-            System.out.print("Apakah memiliki sertifikat kompetensi pemrograman? ");
-            hasSertifikat = sc.nextBoolean();
-            if (nilaiDaspro >= 80 || hasSertifikat) {
-                System.out.print("Berapa nilai wawancara? ");
-                nilaiWawancara = sc.nextInt();
-                if (nilaiWawancara >= 75) {
-                    System.out.println("Mahasiswa diterima sebagai asisten");
+            if (jenis == 1 || jenis == 2) {
+                System.out.print("Masukkan durasi waktu: ");
+                waktu = sc.nextInt();
+                if (jenis == 1) {
+                    total += waktu * 3000;
                 } else {
-                    System.out.println("Ditolak sebagai asisten");
+                    total += waktu * 2000;
                 }
-            } else {
-                System.out.println("Maaf syarat berkas tidak terpenuhi");
-            } 
-        } else {
-            System.out.println("Maaf syaratmu tidak terpenuhi");
-        }
+            } else if (jenis > 2){
+                System.out.println("Jenis kendaraan tidak tersedia");
+            }
+        } while (jenis != 0);
+
+        System.out.println("Total pembayaran parkir: Rp " + total);
         sc.close();
     }
 }
+
 ```
    * **Hasil Running**
 
-![Output Tugas 2](<output seleksi asisten.png>)
+![Output Tugas 2](<Output Parkir.png>)
