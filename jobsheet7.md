@@ -48,7 +48,7 @@ public class SiakadFor19 {
 
 #### 2.1.2 Hasil Running / Screenshot Output
 
-![Output Percobaan 1](<output ujian skripsi.png>)
+![Output Percobaan 1](<Output Siakad For.png>)
 
 #### 2.1.3 Jawaban Pertanyaan / Pertanyaan Refleksi
 * **Pertanyaan 1:** Sebutkan dan tunjukkan masing-masing komponen perulangan FOR pada kode program Percobaan 1!
@@ -120,7 +120,7 @@ public class SiakadWhile19 {
 
 #### 2.2.2 Hasil Running
 
-![Output Percobaan 2](<output akses WIFI.png>)
+![Output Percobaan 2](<Output Siakad While.png>)
 
 #### 2.2.3 Jawaban Pertanyaan / Pertanyaan Refleksi
 * **Pertanyaan 1:** Pada potongan kode berikut, tentukan maksud dan kegunaan dari sintaks berikut:
@@ -181,7 +181,7 @@ public class KafeDoWhile19 {
 ```
 #### 2.3.2 Hasil Running
 
-![Output Percobaan 3](<output akses lab.png>)
+![Output Percobaan 3](<Output Kafe Do While.png>)
 
 #### 2.3.3 Jawaban Pertanyaan / Pertanyaan Refleksi
 * **Pertanyaan 1:** Pada penggunaan DO-WHILE ini, apabila nama pelanggan yang dimasukkan pertama kali adalah “batal”, maka berapa kali perulangan dilakukan?
