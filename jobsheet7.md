@@ -52,9 +52,11 @@ public class SiakadFor19 {
 
 #### 2.1.3 Jawaban Pertanyaan / Pertanyaan Refleksi
 * **Pertanyaan 1:** Sebutkan dan tunjukkan masing-masing komponen perulangan FOR pada kode program Percobaan 1!
-  * **Jawab:** .
+  * **Jawab:** Dalam perulangan for terdiri dari beberapa komponen “for (int i = 1; i <= 10; i++)” int = 1 ini sebagai inisiasi atau tahapan awal dimana variable control dalam perulangan pertamakali dibuat.
+i <= 10 ini bertindak sebagai kondisi dari variable i nya dimana i ini menetukan akan dikerjakan tidaknya sebuah program.
+i++ ini bertindak sebagai update dari nilai variable i pada setiap perulangan.
 * **Pertanyaan 2:** Mengapa variabel tertinggi diinisialisasi 0 dan terendah diinisialisasi 100? Apa yang terjadi jika variabel tertinggi diinisialisasi 100 dan terendah diinisialisasi 0?
-  * **Jawab:** .
+  * **Jawab:** Kenapa tinggi = 0 dan rendah =100, agar nilai yang diinput dapat dibandingkan dan acuannya ga ngawur. Misal kita input angka 60 trus acuan tinggi = 100 nanti nilai yang diproses bukan 60 malah 100 nya begitupun sebaliknya.
 * **Pertanyaan 3:** Jelaskan fungsi dan alur kerja dari potongan kode berikut!
 ```
 if (nilai > tertinggi) {
@@ -64,9 +66,44 @@ if (nilai < terendah) {
     terendah = nilai;
 }
 ```
-  * **Jawab:**
+  * **Jawab:** Program if tersebut digunakan untuk seleksi nilai yang diinput oleh user. If ini mencari mana nilai tertinggi dan nilai terendah sampai sebanyak i , setelah perulangan sudah sama dengan i atau sebanyak i maka kedua variabel akan mendapatkan nilainya.
 * **Pertanyaan 4:** Modifikasi kode program sehingga terdapat perhitungan untuk menentukan berapa mahasiswa yang lulus dan yang tidak lulus berdasarkan batas kelulusan (nilai minimal 60). Tampilkan jumlah mahasiswa lulus dan tidak lulus setelah menampilkan nilai tertinggi dan terendah!
   * **Jawab:**
+```java
+import java.util.Scanner;
+
+public class SiakadFor19 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double nilai, tertinggi = 0, terendah = 100;
+        int jmlLulus = 0, jmlTidak = 0;
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.print("Masukkan nilai mahasiswa ke- " + i + ": ");
+            nilai = sc.nextDouble();
+            if (nilai > tertinggi) {
+                tertinggi = nilai;
+            }
+            if (nilai < terendah) {
+                terendah = nilai;
+            }
+            if (nilai >= 60) {
+                jmlLulus++;
+            } else {
+                jmlTidak++;
+            }   
+        }
+        System.out.println("Nilai tertinggi : " + tertinggi);
+        System.out.println("Nilai terendah : " + terendah);
+        System.out.println("Jumlah mahasiswa yang lulus : " + jmlLulus);
+        System.out.println("Jumlah mahasiswa yang tidak lulus : " + jmlTidak);          
+    }
+}
+```
+#### Hasil Running
+![Output Percobaan](<Output Siakad For.png>)
+
 * **Pertanyaan 5:** Commit dan push kode program ke Github
   * **Jawab**
     
